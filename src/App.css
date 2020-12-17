@@ -65,7 +65,7 @@ ul.navbar-nav{
 }
 .graphic-pattern{
     position: absolute;
-    top: 150px;
+    bottom: -100px;
     z-index: -1;
 }
 
