@@ -1,38 +1,285 @@
-.App {
-  text-align: center;
+@font-face {
+    font-family: 'AvenirNext';
+    src: url('./fonts/AvenirNext-Regular.woff2') format('woff2'), url('./fonts/AvenirNext-Regular.woff') format('woff');
+}
+@font-face {
+    font-family: "AvenirNext";
+    src: url('./fonts/AvenirNext-Bold.woff2') format('woff2'), url('./fonts/AvenirNext-Bold.woff') format('woff');
+    font-weight: bold;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    margin: 0;
+    font-family: AvenirNext, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: rgb(122,60,219);
+    min-height: 100%;
+}
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+div#root{
+    height: 100vh;
+}
+.container{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.navbar{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+.navbar-flow{
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+}
+.navbar-flow .navbar-nav{
+    flex-direction: row;
+}
+ul.navbar-nav{
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.ml-auto{
+    margin-left: auto !important;
+}
+.mr-auto{
+    margin-right: auto !important;
+}
+.mx-auto{
+    margin: 0 auto !important;
+}
+.pr-0{
+    padding-right: 0 !important;
+}
+.graphic-pattern{
+    position: absolute;
+    top: 150px;
+    z-index: -1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.flex-row{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.flex-full{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.flex-left{
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+}
+.flex-right{
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+}
+.flex-col{
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.flex-left, .flex-right, .flex-col{
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.main-content{
+    color: white;
+    padding-top: 10%;
+}
+.side-content{
+    padding: 0 50px;
+}
+.side-content h1{
+    font-size: 64px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-color: white;
+    color: black;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+.card img.img-card{
+    width: 100%;
+    height: 300px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    padding: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.img-card{
+    flex-shrink: 0;
+    width: 100%;
+}
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.btn{
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 5px 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 3px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.btn:hover{
+    cursor: pointer;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+.carousel{
+    overflow-x: hidden;
+}
+.carousel-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    transition: .5s ease;
+}
+.content {
+    padding: 2px 16px;
+}
+.content .info-badge{
+    display: flex;
+    justify-content: space-between;
+}
+.content .info-price{
+    display: flex;
+    justify-content: start;
+}
+.content .info-price p{
+    padding-top: 5px;
+    margin-left: 10px;
+}
+button.btn-detail{
+    background: #4db97f;
+    color: white;
+    box-shadow: none;
+    outline: 0;
+    margin: 20px 0;
+    padding: 15px;
+}
+.content .info-badge button.btn-sold{
+    background: #e9eef2;
+    color: #000000;
+    box-shadow: none;
+    outline: 0;
+}
+.content .info-badge button.btn-info-nego{
+    background: #4db97f;
+    color: white;
+    box-shadow: none;
+    outline: 0;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+.control-right{
+    position: absolute;
+    top: 45%;
+    left: -20px;
+    background: white;
+    padding: 15px 0 0 15px;
+    border-radius: 30px;
+    width: 50px;
+    height: 50px;
+}
+.control-left{
+    position: absolute;
+    top: 45%;
+    right: -20px;
+    background: white;
+    padding: 15px 0 0 15px;
+    border-radius: 30px;
+    width: 50px;
+    height: 50px;
+}
+.flex-col img{
+    width: 15px;
+}
+.flex-col h5{
+    margin: 0;
+    font-size: 14px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.modal-panel{
+    position: absolute;
+    background: white;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+    top: 10%;
+    right: 25%;
+    z-index: 9;
+    transition: all .7s ease;
+}
+.modal-content{
+    padding: 10px;
+}
+.modal-body{
+    margin-bottom: 1rem;
+}
+.modal-body .content .info-address h2{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.modal-body .content .info-facility .flex-col h5{
+    font-size: 18px;
+}
+.modal-body img.img-card{
+    width: 100%;
+    height: 450px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    padding: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.back-drop{
+    background: rgba(0, 0, 0, 0.75);
+    height: 100%;
+    position: fixed;
+    transition: all 1.3s;
+    width: 100%;
+    z-index: 1;
+}
+.marker-point{
+    position: absolute;
+    top: 110px;
+    right: 57%;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media (min-width: 1440px){
+    .container{
+        max-width: 1350px;
+    }
 }
